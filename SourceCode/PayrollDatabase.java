@@ -77,17 +77,24 @@ public class PayrollDatabase{
 			System.out.println(e);
 		}
 	}
-	void deleteHourlyEmployee(int employeeId)
+	void deleteEmployee(int employeeId)
 	{
-
-	}
-	void deleteCommissionedEmployee(int employeeId)
-	{
-
-	}
-	void deleteSalariedEmployee(int employeeId)
-	{
-
+		try{
+			String query = "delete from employee where employeeId="+Integer.toString(employeeId);
+			String query1 = "delete from CommissionedEmployee where employeeId="+Integer.toString(employeeId);
+			String query2 = "delete from SalariedEmployee where employeeId="+Integer.toString(employeeId);
+			String query3 = "delete from HourlyEmployee where employeeId="+Integer.toString(employeeId);
+			
+			Statement stmt=con.createStatement();
+			stmt.executeUpdate(query);
+			stmt.executeUpdate(query1);
+			stmt.executeUpdate(query2);
+			stmt.executeUpdate(query3);
+		}
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}
 	}
 	Employee getEmployeeById(int employeeId)
 	{

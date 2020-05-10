@@ -60,7 +60,7 @@ public class Main{
 				new addNewEmployee(sc,db);	
 				break;
 			case 2:
-				new deleteEmployee();
+				new deleteEmployee(sc,db);
 				break;
 			case 3:
 				new postTimeCard();
