@@ -3,6 +3,9 @@ import java.sql.*;
 
 import java.util.*;
 
+
+import org.joda.time.*;
+
 public class PayrollDatabase{
 
 	Connection con;
@@ -13,6 +16,24 @@ public class PayrollDatabase{
 			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/payroll","root","password");    
 		}
 		catch(Exception e){ 
+			System.out.println(e);
+		}
+	}
+	void addTimeCard(int employeeId,TimeCard timeCard)
+	{
+		DateTime date = timeCard.date;
+		Timestamp time = new Timestamp(date.getMillis());
+		try{
+			String query = " insert into TimeCard(employeeId,hours,date)"+ " values (?, ?, ?)";
+			PreparedStatement preparedStmt = con.prepareStatement(query);	
+			preparedStmt.setInt(1,employeeId);
+			preparedStmt.setDouble(2,timeCard.hours);
+			preparedStmt.setTimestamp(3,time);
+			preparedStmt.execute();
+			
+		}
+		catch(SQLException e)
+		{
 			System.out.println(e);
 		}
 	}

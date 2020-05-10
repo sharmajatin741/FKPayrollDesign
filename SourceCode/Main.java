@@ -63,7 +63,7 @@ public class Main{
 				new deleteEmployee(sc,db);
 				break;
 			case 3:
-				new postTimeCard();
+				new postTimeCard(sc,db);
 				break;
 			case 4:
 				new postSalesReceipt();
