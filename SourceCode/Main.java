@@ -1,7 +1,8 @@
 import java.util.*;
 
 public class Main{
-
+	static Scanner sc;
+	static PayrollDatabase db;
 	static int noOfCommands = 8;
 	static void Welcome()
 	{
@@ -56,25 +57,25 @@ public class Main{
 		switch(commandInt)
 		{
 			case 1:
-				//something;
+				new addNewEmployee(sc,db);	
 				break;
 			case 2:
-				//something;
+				new deleteEmployee();
 				break;
 			case 3:
-				//something;
+				new postTimeCard();
 				break;
 			case 4:
-				//something;
+				new postSalesReceipt();
 				break;
 			case 5:
-				//something;
+				new postUnionMembership();
 				break;
 			case 6:
-				//something;
+				new changeEmployeeDetails();
 				break;
 			case 7:
-				//something;
+				new runPayrollForToday();
 				break;
 			case 8:
 				System.out.println("Thank You! Have a nice day");
@@ -86,7 +87,8 @@ public class Main{
 		}
 	}
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
+		db = new PayrollDatabase();
 		char choice = 'N';
 		Welcome();
 		do{
