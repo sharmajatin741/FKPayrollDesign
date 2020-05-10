@@ -37,6 +37,25 @@ public class PayrollDatabase{
 			System.out.println(e);
 		}
 	}
+	void addSalesReceipt(int employeeId,SalesReceipt salesReceipt)
+	{
+		DateTime date = salesReceipt.date;
+		Timestamp time = new Timestamp(date.getMillis());
+		try{
+			String query = " insert into SalesReceipt(employeeId,amount,date)"+ " values (?, ?, ?)";
+			PreparedStatement preparedStmt = con.prepareStatement(query);	
+			preparedStmt.setInt(1,employeeId);
+			preparedStmt.setDouble(2,salesReceipt.amount);
+			preparedStmt.setTimestamp(3,time);
+			preparedStmt.execute();
+			
+		}
+		catch(SQLException e)
+		{
+			System.out.println(e);
+		}
+	}
+
 	void addEmployee(String name,int employeeId,String address,int choiceMethod,int choiceSchedule,int choiceClassification)
 	{
 		try{

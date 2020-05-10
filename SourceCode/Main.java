@@ -66,7 +66,7 @@ public class Main{
 				new postTimeCard(sc,db);
 				break;
 			case 4:
-				new postSalesReceipt();
+				new postSalesReceipt(sc,db);
 				break;
 			case 5:
 				new postUnionMembership();
