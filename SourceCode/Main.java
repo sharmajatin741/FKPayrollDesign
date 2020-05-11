@@ -3,7 +3,6 @@ import java.util.*;
 public class Main{
 	static Scanner sc;
 	static PayrollDatabase db;
-	static int noOfCommands = 8;
 	static void Welcome()
 	{
 		System.out.println("------------------------------------------------");
@@ -39,7 +38,7 @@ public class Main{
 		{
 			return false;
 		}
-		if(Integer.parseInt(command)>noOfCommands)
+		if(Integer.parseInt(command)>8)
 		{
 			return false;
 		}
